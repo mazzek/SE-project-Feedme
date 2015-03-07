@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">FeedMe!</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_map_test">MapTest</string>
+    <string name="title_activity_fast_food">FastFood</string>
+    <string name="title_activity_asian_food">AsianFood</string>
+    <string name="title_activity_mexican_food">MexicanFood</string>
+    <string name="title_activity_italian_food">ItalianFood</string>
+</resources>

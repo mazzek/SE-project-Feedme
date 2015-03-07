@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.spencer.feedme" >
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".ButtonTest"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MapTest"
+            android:label="@string/title_activity_map_test" >
+        </activity>
+        <activity
+            android:name=".FastFood"
+            android:label="@string/title_activity_fast_food" >
+        </activity>
+        <activity
+            android:name=".AsianFood"
+            android:label="@string/title_activity_asian_food" >
+        </activity>
+        <activity
+            android:name=".MexicanFood"
+            android:label="@string/title_activity_mexican_food" >
+        </activity>
+        <activity
+            android:name=".ItalianFood"
+            android:label="@string/title_activity_italian_food" >
+        </activity>
+    </application>
+
+</manifest>
