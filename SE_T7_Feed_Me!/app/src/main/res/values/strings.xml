@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">SE_T7_Feed_Me!</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_search">Search</string>
+    <string name="title_activity_list__fast_food">List_FastFood</string>
+    <string name="title_activity_list__mexican_food">List_MexicanFood</string>
+    <string name="title_activity_list__asian_food">List_AsianFood</string>
+    <string name="title_activity_list__italian_food">List_ItalianFood</string>
+</resources>

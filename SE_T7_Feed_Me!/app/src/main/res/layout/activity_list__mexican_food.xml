@@ -1,0 +1,60 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.example.spencer.se_t7_feed_me.List_MexicanFood"
+    android:background="#ff585858"
+    android:id="@+id/List_MexicanFood_Layout">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:id="@+id/List_MexicanFood_Back_Button"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:clickable="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Mexican Food!"
+        android:id="@+id/List_MexicanFood_Title"
+        android:layout_below="@+id/List_MexicanFood_Back_Button"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Mexico Viejo"
+        android:id="@+id/List_MexicanFood_MexicoViejo_Title"
+        android:layout_below="@+id/List_MexicanFood_Title"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="47dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Address: 2131 Martin Luther King Jr Blvd, Fayetteville, AR 72701"
+        android:id="@+id/List_MexicanFood_MexicoViejo_Address"
+        android:layout_below="@+id/List_MexicanFood_MexicoViejo_Title"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="FIND!"
+        android:id="@+id/List_MexicanFood_MexicoViejo_Find_Button"
+        android:layout_below="@+id/List_MexicanFood_MexicoViejo_Address"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+</RelativeLayout>
