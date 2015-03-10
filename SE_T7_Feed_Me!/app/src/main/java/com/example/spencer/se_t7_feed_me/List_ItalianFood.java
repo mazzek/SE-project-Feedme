@@ -26,6 +26,14 @@ public class List_ItalianFood extends ActionBarActivity {
 
         });
 
+        Button List_ItalianFood_Map = (Button) findViewById(R.id.List_ItalianFood_Map);
+        List_ItalianFood_Map.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent myIntent = new Intent(android.content.Intent.ACTION_VIEW, Uri.parse("http://maps.google.com/maps?&daddr=Address: 3616 Mall Ave, Fayetteville, AR 72703"));
+                startActivity(myIntent);
+            }
+        });
+
     }
 
 
