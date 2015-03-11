@@ -8,6 +8,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 
 public class List_AsianFood extends ActionBarActivity {
@@ -26,14 +29,35 @@ public class List_AsianFood extends ActionBarActivity {
 
         });
 
-        Button List_AsianFood_JDChina_Find = (Button) findViewById(R.id.List_AsianFood_JDChina_Find_Button);
-        List_AsianFood_JDChina_Find.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                Intent myIntent = new Intent(android.content.Intent.ACTION_VIEW, Uri.parse("http://maps.google.com/maps?&daddr=1740 Martin Luther King Jr Blvd, Fayetteville, AR 72701"));
-                startActivity(myIntent);
-            }
+        ArrayList<String> RestaurantNames = new ArrayList<String>();
+        ArrayList<String> RestaurantAddresses = new ArrayList<String>();
+        if(getIntent().getStringExtra("city").equals("Fayetteville, AR"))
+        {
+            RestaurantNames.add("JD China");
+            RestaurantAddresses.add("1740 Martin Luther King Jr Blvd, Fayetteville, AR 72701");
+            RestaurantNames.add("KJ's Sushi & Korean BBQ");
+            RestaurantAddresses.add("3223 College Ave, Fayetteville, AR 72703");
+        }
+        else if(getIntent().getStringExtra("city").equals("Little Rock, AR"))
+        {
+            RestaurantNames.add("Igibon Japanese Food House");
+            RestaurantAddresses.add("11121 N Rodney Parham Rd #13A, Little Rock, AR 72212");
+            RestaurantNames.add("Fu Lin");
+            RestaurantAddresses.add(" 200 N Bowman Rd #17, Little Rock, AR 72211");
+        }
+        else if(getIntent().getStringExtra("city").equals("Springdale, AR"))
+        {
+            RestaurantNames.add("Far East Chinese Restaurant");
+            RestaurantAddresses.add("812 N Thompson St #11, Springdale, AR 72764");
+            RestaurantNames.add("Jade China Restaurant");
+            RestaurantAddresses.add("1046 W Sunset Ave, Springdale, AR 72764");
+        }
 
-        });
+        MyCustomAdapter adapter = new MyCustomAdapter(RestaurantNames, RestaurantAddresses, this);
+
+        ListView lView = (ListView)findViewById(R.id.List_AsianFood_ListView);
+        lView.setAdapter(adapter);
+
     }
 
 

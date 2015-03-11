@@ -48,11 +48,11 @@ public class MyCustomAdapter extends BaseAdapter implements ListAdapter{
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(R.layout.list_target,null);
         }
-        TextView Name = (TextView)view.findViewById(R.id.List_FastFood_Title);
+        TextView Name = (TextView)view.findViewById(R.id.List_Title);
         Name.setText(RestaurantsName.get(position));
-        TextView Address = (TextView)view.findViewById(R.id.List_FastFood_Address);
-        Name.setText(RestaurantsAddress.get(position));
-        Button findButton = (Button)view.findViewById(R.id.List_FastFood_Find_Button);
+        TextView Address = (TextView)view.findViewById(R.id.List_Address);
+        Address.setText(RestaurantsAddress.get(position));
+        Button findButton = (Button)view.findViewById(R.id.List_Find_Button);
         final String MapsOpen = "http://maps.google.com/maps?&daddr=" + RestaurantsAddress.get(position);
 
         findButton.setOnClickListener(new View.OnClickListener() {

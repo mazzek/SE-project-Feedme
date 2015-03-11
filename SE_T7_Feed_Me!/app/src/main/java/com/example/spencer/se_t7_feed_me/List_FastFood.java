@@ -8,9 +8,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
+
+import java.util.ArrayList;
 
 
 public class List_FastFood extends ActionBarActivity {
@@ -29,17 +32,43 @@ public class List_FastFood extends ActionBarActivity {
 
         });
 
-        Button List_FastFood_McDonalds_Find = (Button) findViewById(R.id.List_FastFood_McDonalds_Find_Button);
-        List_FastFood_McDonalds_Find.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                Intent myIntent = new Intent(android.content.Intent.ACTION_VIEW, Uri.parse("http://maps.google.com/maps?&daddr=1963 West Martin Luther King Boulevard, Fayetteville, AR 72701"));
-                startActivity(myIntent);
-            }
+        ArrayList<String> RestaurantNames = new ArrayList<String>();
+        ArrayList<String> RestaurantAddresses = new ArrayList<String>();
 
-        });
+        if(getIntent().getStringExtra("city").equals("Fayetteville, AR"))
+        {
+        RestaurantNames.add("McDonald's");
+        RestaurantAddresses.add("1963 West Martin Luther King Boulevard, Fayetteville, AR 72701");
+        RestaurantNames.add("Chick-fil-A");
+        RestaurantAddresses.add("1369 W Martin Luther King Blvd Fayetteville, AR 72701");
+        }
+        else if(getIntent().getStringExtra("city").equals("Little Rock, AR"))
+        {
+            RestaurantNames.add("Subway");
+            RestaurantAddresses.add("2 St Vincent Circle, Little Rock, AR 72205");
+            RestaurantNames.add("Chick-fil-A");
+            RestaurantAddresses.add("425 West Capitol Avenue, Little Rock, AR 72701");
+        }
+        else if(getIntent().getStringExtra("city").equals("Springdale, AR"))
+        {
+            RestaurantNames.add("McDonald's");
+            RestaurantAddresses.add("1260 E Robinson Ave, Springdale, AR");
+            RestaurantNames.add("Wendy's");
+            RestaurantAddresses.add("2000 S Pleasant St, Springdale, AR");
+        }
 
-        TextView List_FastFood_Test = (TextView) findViewById(R.id.textView);
-        List_FastFood_Test.setText(getIntent().getStringExtra("city"));
+
+
+
+        MyCustomAdapter adapter = new MyCustomAdapter(RestaurantNames, RestaurantAddresses, this);
+
+        ListView lView = (ListView)findViewById(R.id.List_FastFood_ListView);
+        lView.setAdapter(adapter);
+
+
+
+        //TextView List_FastFood_Test = (TextView) findViewById(R.id.textView);
+       // List_FastFood_Test.setText(getIntent().getStringExtra("city"));
     }
 
 

@@ -27,35 +27,12 @@
         android:layout_below="@+id/List_AsianFood_Back_Button"
         android:layout_centerHorizontal="true" />
 
-    <TextView
+    <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="J.D. China"
-        android:id="@+id/List_AsianFood_JDChina_Title"
+        android:id="@+id/List_AsianFood_ListView"
         android:layout_below="@+id/List_AsianFood_Title"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="51dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Address: 1740 Martin Luther King Jr Blvd, Fayetteville, AR 72701"
-        android:id="@+id/List_AsianFood_JDChina_Address"
-        android:layout_below="@+id/List_AsianFood_JDChina_Title"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="FIND!"
-        android:id="@+id/List_AsianFood_JDChina_Find_Button"
-        android:layout_below="@+id/List_AsianFood_JDChina_Address"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="39dp" />
 
 </RelativeLayout>

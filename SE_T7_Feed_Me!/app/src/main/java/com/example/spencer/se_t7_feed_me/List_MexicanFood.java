@@ -8,6 +8,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 
 public class List_MexicanFood extends ActionBarActivity {
@@ -25,15 +28,36 @@ public class List_MexicanFood extends ActionBarActivity {
             }
 
         });
+        ArrayList<String> RestaurantNames = new ArrayList<String>();
+        ArrayList<String> RestaurantAddresses = new ArrayList<String>();
+        if(getIntent().getStringExtra("city").equals("Fayetteville, AR"))
+        {
+            RestaurantNames.add("Mexico Viejo");
+            RestaurantAddresses.add("2131 Martin Luther King Jr Blvd, Fayetteville, AR 72701");
+            RestaurantNames.add("La Huerta");
+            RestaurantAddresses.add("2356 College Ave, Fayetteville, AR 72703");
+        }
+        else if(getIntent().getStringExtra("city").equals("Little Rock, AR"))
+        {
+            RestaurantNames.add("El Porton");
+            RestaurantAddresses.add("12111 W Markham St #450, Little Rock, AR 72211");
+            RestaurantNames.add("La Hacienda");
+            RestaurantAddresses.add("3024 Cantrell Rd, Little Rock, AR 72202");
+        }
+        else if(getIntent().getStringExtra("city").equals("Springdale, AR"))
+        {
+            RestaurantNames.add("Acambaro");
+            RestaurantAddresses.add("121 N Thompson St, Springdale, AR 72764");
+            RestaurantNames.add("Las Margaritas");
+            RestaurantAddresses.add("2313 W Sunset Ave, Springdale, AR 72762");
+        }
 
-        Button List_MexicanFood_MexicoViejo_Find = (Button) findViewById(R.id.List_MexicanFood_MexicoViejo_Find_Button);
-        List_MexicanFood_MexicoViejo_Find.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                Intent myIntent = new Intent(android.content.Intent.ACTION_VIEW, Uri.parse("http://maps.google.com/maps?&daddr=2131 Martin Luther King Jr Blvd, Fayetteville, AR 72701"));
-                startActivity(myIntent);
-            }
+        MyCustomAdapter adapter = new MyCustomAdapter(RestaurantNames, RestaurantAddresses, this);
 
-        });
+        ListView lView = (ListView)findViewById(R.id.List_MexicanFood_ListView);
+        lView.setAdapter(adapter);
+
+
     }
 
 

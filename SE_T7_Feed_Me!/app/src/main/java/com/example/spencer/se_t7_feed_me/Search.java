@@ -76,7 +76,7 @@ public class Search extends ActionBarActivity {
         ImageButton Search_Italian = (ImageButton) findViewById(R.id.Search_ItalianFood_Button);
         Search_Italian.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent myIntent = new Intent(view.getContext(), List_Test.class);
+                Intent myIntent = new Intent(view.getContext(), List_ItalianFood.class);
                 myIntent.putExtra("city",spinner.getSelectedItem().toString());
                 startActivityForResult(myIntent, 0);
             }

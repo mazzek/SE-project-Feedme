@@ -8,6 +8,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 
 public class List_ItalianFood extends ActionBarActivity {
@@ -26,16 +29,37 @@ public class List_ItalianFood extends ActionBarActivity {
 
         });
 
-        Button List_ItalianFood_OliveGarden_Find = (Button) findViewById(R.id.List_ItalianFood_OliveGarden_Find_Button);
-        List_ItalianFood_OliveGarden_Find.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                Intent myIntent = new Intent(android.content.Intent.ACTION_VIEW, Uri.parse("http://maps.google.com/maps?&daddr=3616 Mall Ave, Fayetteville, AR 72703"));
-                startActivity(myIntent);
-            }
+        ArrayList<String> RestaurantNames = new ArrayList<String>();
+        ArrayList<String> RestaurantAddresses = new ArrayList<String>();
+        if(getIntent().getStringExtra("city").equals("Fayetteville, AR"))
+        {
+            RestaurantNames.add("Olive Garden");
+            RestaurantAddresses.add("3616 Mall Ave, Fayetteville, AR 72703");
+            RestaurantNames.add("Noodles");
+            RestaurantAddresses.add("3748 Mall Ave, Fayetteville, AR 72703");
+        }
+        else if(getIntent().getStringExtra("city").equals("Little Rock, AR"))
+        {
+            RestaurantNames.add("Ciao Italian Restaurant");
+            RestaurantAddresses.add("405 W 7th St, Little Rock, AR 72201");
+            RestaurantNames.add("Bruno's Little Italy");
+            RestaurantAddresses.add("310 Main St #101, Little Rock, AR 72201");
+        }
+        else if(getIntent().getStringExtra("city").equals("Springdale, AR"))
+        {
+            RestaurantNames.add("Guido's Pizza");
+            RestaurantAddresses.add("4275 S Thompson St, Springdale, AR 72764");
+            RestaurantNames.add("Joe's Pizza & Pasta");
+            RestaurantAddresses.add("4224 W Sunset Ave, Springdale, AR 72762");
+        }
 
-        });
+        MyCustomAdapter adapter = new MyCustomAdapter(RestaurantNames, RestaurantAddresses, this);
 
+        ListView lView = (ListView)findViewById(R.id.List_ItalianFood_ListView);
+        lView.setAdapter(adapter);
     }
+
+
 
 
     @Override
