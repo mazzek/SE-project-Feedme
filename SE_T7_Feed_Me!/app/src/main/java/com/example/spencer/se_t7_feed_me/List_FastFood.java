@@ -8,6 +8,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 
 public class List_FastFood extends ActionBarActivity {
@@ -34,6 +37,9 @@ public class List_FastFood extends ActionBarActivity {
             }
 
         });
+
+        TextView List_FastFood_Test = (TextView) findViewById(R.id.textView);
+        List_FastFood_Test.setText(getIntent().getStringExtra("city"));
     }
 
 

@@ -36,6 +36,10 @@
             android:name=".List_ItalianFood"
             android:label="@string/title_activity_list__italian_food" >
         </activity>
+        <activity
+            android:name=".List_Test"
+            android:label="@string/title_activity_list__test" >
+        </activity>
     </application>
 
 </manifest>

@@ -59,8 +59,16 @@
         android:layout_height="wrap_content"
         android:text="Back"
         android:id="@+id/Search_Back_Button"
-        android:layout_alignParentTop="true"
+        android:clickable="true"
+        android:layout_alignBottom="@+id/Search_ItalianFood_Button"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:clickable="true" />
+        android:layout_alignParentStart="true" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Search_City_Selector"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:spinnerMode="dropdown" />
 </RelativeLayout>

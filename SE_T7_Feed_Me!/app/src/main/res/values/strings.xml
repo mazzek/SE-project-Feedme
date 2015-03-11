@@ -8,4 +8,5 @@
     <string name="title_activity_list__mexican_food">List_MexicanFood</string>
     <string name="title_activity_list__asian_food">List_AsianFood</string>
     <string name="title_activity_list__italian_food">List_ItalianFood</string>
+    <string name="title_activity_list__test">List_Test</string>
 </resources>
