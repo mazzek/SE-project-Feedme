@@ -152,20 +152,8 @@ public class StartPage extends Activity implements OnClickListener{
                     //text_1 = (TextView)findViewById(R.id.txt1);
                     Jasonobject = Jarray.getJSONObject(i);
 
-                    //get an output on the screen
-                    //String id = Jasonobject.getString("id");
                     final String name = Jasonobject.getString("name");
                     final String password = Jasonobject.getString("detail");
-
-
-                    //text.setText(name);
-
-
-                   /* if (et.getText().toString().equalsIgnoreCase(name)) {
-                    temp = "Correct";
-                    text.setText(temp);
-                    break;
-                    }*/
 
                     login.setOnClickListener(new View.OnClickListener() {
                         public void onClick(View view) {
