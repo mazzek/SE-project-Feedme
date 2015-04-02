@@ -10,6 +10,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Spinner;
+import android.widget.TextView;
+
 
 import java.util.ArrayList;
 import java.util.Vector;
@@ -22,6 +24,9 @@ public class Search extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
+        TextView welcome;
+        welcome = (TextView) findViewById(R.id.welcomeText);
+        welcome.setText("Welcome " + getIntent().getStringExtra("name"));
 
         final Spinner spinner = (Spinner) findViewById(R.id.Search_City_Selector);
         ArrayList<String> cities = new ArrayList<String>();

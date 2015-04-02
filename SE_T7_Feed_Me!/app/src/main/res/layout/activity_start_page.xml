@@ -21,10 +21,47 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/Welcome_FindFood"
-        android:layout_marginTop="92dp"
         android:clickable="true"
         android:contentDescription="Find Food!"
-        android:layout_below="@+id/WelcomeText"
+        android:src="@mipmap/ic_launcher"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/et"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/et2"
+        android:layout_marginBottom="29dp"
+        android:layout_above="@+id/et"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Log In"
+        android:id="@+id/login_button"
+        android:layout_below="@+id/et"
         android:layout_centerHorizontal="true"
-        android:src="@mipmap/ic_launcher" />
+        android:layout_marginTop="42dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2"
+        android:layout_below="@+id/login_button"
+        android:layout_toRightOf="@+id/login_button"
+        android:layout_above="@+id/Welcome_FindFood"
+        android:layout_alignRight="@+id/et2"
+        android:layout_alignEnd="@+id/et2"
+        android:textColor="#ffff0015" />
+
 </RelativeLayout>

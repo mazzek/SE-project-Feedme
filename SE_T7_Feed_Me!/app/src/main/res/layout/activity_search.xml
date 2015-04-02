@@ -14,9 +14,9 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Select a Food Type!"
         android:id="@+id/SearchText"
-        android:layout_alignParentTop="true"
+        android:layout_above="@+id/Search_FastFood_Button"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="60dp" />
+        android:layout_marginBottom="52dp" />
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -24,17 +24,19 @@
         android:id="@+id/Search_FastFood_Button"
         android:clickable="true"
         android:src="@mipmap/search_fastfood_image"
-        android:layout_below="@+id/SearchText"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/Search_MexicanFood_Button"
-        android:layout_below="@+id/Search_FastFood_Button"
-        android:layout_centerHorizontal="true"
         android:clickable="true"
-        android:src="@mipmap/search_mexicanfood_image" />
+        android:src="@mipmap/search_mexicanfood_image"
+        android:layout_above="@+id/Search_ItalianFood_Button"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -42,17 +44,19 @@
         android:id="@+id/Search_AsianFood_Button"
         android:clickable="true"
         android:src="@mipmap/search_asianfood_image"
-        android:layout_below="@+id/Search_MexicanFood_Button"
-        android:layout_centerHorizontal="true" />
+        android:layout_below="@+id/Search_FastFood_Button"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/Search_ItalianFood_Button"
-        android:layout_below="@+id/Search_AsianFood_Button"
-        android:layout_centerHorizontal="true"
         android:src="@mipmap/search_italianfood_image"
-        android:clickable="true" />
+        android:clickable="true"
+        android:layout_alignBottom="@+id/Search_AsianFood_Button"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -60,7 +64,7 @@
         android:text="Back"
         android:id="@+id/Search_Back_Button"
         android:clickable="true"
-        android:layout_alignBottom="@+id/Search_ItalianFood_Button"
+        android:layout_below="@+id/Search_AsianFood_Button"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -71,4 +75,17 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:spinnerMode="dropdown" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/welcomeText"
+        android:layout_below="@+id/Search_City_Selector"
+        android:layout_alignLeft="@+id/SearchText"
+        android:layout_alignStart="@+id/SearchText"
+        android:layout_above="@+id/SearchText"
+        android:layout_alignRight="@+id/SearchText"
+        android:layout_alignEnd="@+id/SearchText"
+        android:textColor="#ffffea49"
+        android:textSize="22dp" />
 </RelativeLayout>
