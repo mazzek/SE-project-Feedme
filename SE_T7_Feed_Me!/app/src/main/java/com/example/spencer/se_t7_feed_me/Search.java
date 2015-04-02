@@ -33,10 +33,9 @@ public class Search extends ActionBarActivity {
         cities.add("Fayetteville, AR");
         cities.add("Little Rock, AR");
         cities.add("Springdale, AR");
-        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(getApplicationContext(),android.R.layout.simple_spinner_item,cities);
+        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, cities);
         spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(spinnerArrayAdapter);
-
 
 
         Button Search_Back = (Button) findViewById(R.id.Search_Back_Button);
@@ -52,8 +51,8 @@ public class Search extends ActionBarActivity {
         Search_FastFood.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent myIntent = new Intent(view.getContext(), List_Test.class);
-                myIntent.putExtra("city",spinner.getSelectedItem().toString());
-                myIntent.putExtra("type","Fast Food");
+                myIntent.putExtra("city", spinner.getSelectedItem().toString());
+                myIntent.putExtra("type", "Fast Food");
                 startActivityForResult(myIntent, 0);
             }
 
@@ -63,8 +62,8 @@ public class Search extends ActionBarActivity {
         Search_Mexican.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent myIntent = new Intent(view.getContext(), List_Test.class);
-                myIntent.putExtra("city",spinner.getSelectedItem().toString());
-                myIntent.putExtra("type","Mexican");
+                myIntent.putExtra("city", spinner.getSelectedItem().toString());
+                myIntent.putExtra("type", "Mexican");
                 startActivityForResult(myIntent, 0);
             }
 
@@ -74,8 +73,8 @@ public class Search extends ActionBarActivity {
         Search_Asian.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent myIntent = new Intent(view.getContext(), List_Test.class);
-                myIntent.putExtra("city",spinner.getSelectedItem().toString());
-                myIntent.putExtra("type","Asian");
+                myIntent.putExtra("city", spinner.getSelectedItem().toString());
+                myIntent.putExtra("type", "Asian");
                 startActivityForResult(myIntent, 0);
             }
 
@@ -85,16 +84,23 @@ public class Search extends ActionBarActivity {
         Search_Italian.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent myIntent = new Intent(view.getContext(), List_Test.class);
-                myIntent.putExtra("city",spinner.getSelectedItem().toString());
-                myIntent.putExtra("type","Italian");
+                myIntent.putExtra("city", spinner.getSelectedItem().toString());
+                myIntent.putExtra("type", "Italian");
+                startActivityForResult(myIntent, 0);
+            }
+
+        });
+
+        Button NewRest = (Button) findViewById(R.id.SubmitNewRest);
+        NewRest.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent myIntent = new Intent(view.getContext(), NewRestRequest.class);
                 startActivityForResult(myIntent, 0);
             }
 
         });
 
     }
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
