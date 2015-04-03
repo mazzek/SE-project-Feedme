@@ -53,8 +53,13 @@ public class NewRestRequest extends Activity {
         cities.add("Fayetteville, AR");
         cities.add("Little Rock, AR");
         cities.add("Springdale, AR");
+<<<<<<< HEAD
         ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(getApplicationContext(),R.layout.spinner_layout,cities);
         spinnerArrayAdapter.setDropDownViewResource(R.layout.spinner_layout);
+=======
+        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(getApplicationContext(),android.R.layout.simple_spinner_item,cities);
+        spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+>>>>>>> origin/SQLtest
         spinner.setAdapter(spinnerArrayAdapter);
 
 
@@ -63,8 +68,13 @@ public class NewRestRequest extends Activity {
         foods.add("Mexican");
         foods.add("Asian");
         foods.add("Fast Food");
+<<<<<<< HEAD
         ArrayAdapter<String> spinnerArrayAdapter1 = new ArrayAdapter<String>(getApplicationContext(),R.layout.spinner_layout,foods);
         spinnerArrayAdapter1.setDropDownViewResource(R.layout.spinner_layout);
+=======
+        ArrayAdapter<String> spinnerArrayAdapter1 = new ArrayAdapter<String>(getApplicationContext(),android.R.layout.simple_spinner_item,foods);
+        spinnerArrayAdapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+>>>>>>> origin/SQLtest
         spin2.setAdapter(spinnerArrayAdapter1);
 
 

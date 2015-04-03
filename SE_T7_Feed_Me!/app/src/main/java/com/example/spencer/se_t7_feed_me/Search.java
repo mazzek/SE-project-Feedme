@@ -35,11 +35,16 @@ public class Search extends ActionBarActivity {
         cities.add("Fayetteville, AR");
         cities.add("Little Rock, AR");
         cities.add("Springdale, AR");
+<<<<<<< HEAD
+=======
+        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, cities);
+        spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(spinnerArrayAdapter);
+>>>>>>> origin/SQLtest
 
         ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(getApplicationContext(),R.layout.spinner_layout,cities);
         spinnerArrayAdapter.setDropDownViewResource(R.layout.spinner_layout);
         spinner.setAdapter(spinnerArrayAdapter);
-
 
         Button Search_Back = (Button) findViewById(R.id.Search_Back_Button);
         Search_Back.setOnClickListener(new View.OnClickListener() {

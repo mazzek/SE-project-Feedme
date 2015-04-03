@@ -94,6 +94,7 @@
         android:id="@+id/welcomeText"
         android:layout_below="@+id/Search_City_Selector"
         android:layout_above="@+id/SearchText"
+<<<<<<< HEAD
         android:textColor="#ff41f39a"
         android:textSize="32dp"
         android:textAlignment="center"
@@ -104,14 +105,28 @@
         android:layout_alignParentEnd="true"
         android:textIsSelectable="false"
         android:gravity="center_horizontal" />
+=======
+        android:layout_alignRight="@+id/SearchText"
+        android:layout_alignEnd="@+id/SearchText"
+        android:textColor="#ffffea49"
+        android:textSize="22dp" />
+>>>>>>> origin/SQLtest
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:text="CAN&apos;T FIND?"
         android:id="@+id/SubmitNewRest"
         android:layout_alignBottom="@+id/Search_Back_Button"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:background="#ff41f39a" />
+=======
+        android:text="Can&apos;t find?"
+        android:id="@+id/SubmitNewRest"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+>>>>>>> origin/SQLtest
 </RelativeLayout>
