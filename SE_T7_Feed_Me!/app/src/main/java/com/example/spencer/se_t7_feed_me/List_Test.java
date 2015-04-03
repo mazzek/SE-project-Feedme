@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.content.Context;
 import android.widget.TextView;
@@ -39,6 +40,16 @@ public class List_Test extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list__test);
+
+        Button backButton = (Button) findViewById(R.id.backButton);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent myIntent = new Intent(view.getContext(), Search.class);
+                startActivityForResult(myIntent, 0);
+            }
+
+        });
+
         new connect().execute();
         TextView text = (TextView) findViewById(R.id.textView2);
         text.setText(getIntent().getStringExtra("type") + " Food!");

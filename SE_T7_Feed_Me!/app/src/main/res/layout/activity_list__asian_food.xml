@@ -5,7 +5,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.example.spencer.se_t7_feed_me.List_AsianFood"
-    android:background="#ff5d5d5d"
+    android:background="#ffffffff"
     android:id="@+id/List_AsianFood_Layout">
 
     <Button
@@ -16,23 +16,28 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:clickable="true" />
+        android:clickable="true"
+        android:background="#ff41f39a" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Asian Food!"
+        android:text="Asian Food"
         android:id="@+id/List_AsianFood_Title"
         android:layout_below="@+id/List_AsianFood_Back_Button"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        android:textSize="32dp"
+        android:clickable="false" />
 
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/List_AsianFood_ListView"
         android:layout_below="@+id/List_AsianFood_Title"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="39dp" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="#ffffffff" />
 
 </RelativeLayout>
