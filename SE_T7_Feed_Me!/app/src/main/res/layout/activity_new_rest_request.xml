@@ -6,11 +6,7 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.example.spencer.se_t7_feed_me.NewRestRequest"
     android:id="@+id/newRestReqLayout"
-<<<<<<< HEAD
     android:background="#ffffffff">
-=======
-    android:background="#ff575757">
->>>>>>> origin/SQLtest
 
     <TextView
         android:layout_width="wrap_content"
@@ -19,28 +15,14 @@
         android:text="Submit a Restaurant"
         android:id="@+id/SubmitRestText"
         android:layout_alignParentTop="true"
-<<<<<<< HEAD
         android:layout_centerHorizontal="true"
         android:textStyle="bold"
         android:textSize="32dp" />
-=======
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Type of Food"
-        android:id="@+id/NewRestTypeText"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/FoodType" />
->>>>>>> origin/SQLtest
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/NewRestName"
-<<<<<<< HEAD
         android:hint="Restaurant Name"
         android:textColorHint="#ffcdcdcd"
         android:layout_above="@+id/NewRestAddress"
@@ -49,43 +31,14 @@
         android:layout_marginBottom="22dp"
         android:layout_alignRight="@+id/NewRestAddress"
         android:layout_alignEnd="@+id/NewRestAddress" />
-=======
-        android:layout_below="@+id/NewRestTypeText"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Restaurant Name"
-        android:id="@+id/NewRestNameText"
-        android:layout_below="@+id/NewRestName"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="City"
-        android:id="@+id/NewRestCityText"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/CityName" />
->>>>>>> origin/SQLtest
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/NewRestAddress"
-<<<<<<< HEAD
         android:hint="Restaurant Address"
         android:textColorHint="#ffcdcdcd"
         android:layout_centerVertical="true"
-=======
-        android:layout_below="@+id/NewRestCityText"
->>>>>>> origin/SQLtest
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
@@ -94,7 +47,6 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="(Street Address, City Name, State, Zip Code)"
         android:id="@+id/AddressDescriptionText"
@@ -102,67 +54,34 @@
         android:layout_below="@+id/NewRestAddress"
         android:layout_alignRight="@+id/SubmitRestText"
         android:layout_alignEnd="@+id/SubmitRestText" />
-=======
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Restaurant Address"
-        android:id="@+id/NewRestAddressText"
-        android:layout_below="@+id/NewRestAddress"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="(Street Address, City Name, State, Zip Code)"
-        android:id="@+id/AddressDescriptionText"
-        android:layout_below="@+id/NewRestAddressText"
-        android:layout_centerHorizontal="true" />
->>>>>>> origin/SQLtest
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Submit"
         android:id="@+id/NewRestSubmitButton"
-<<<<<<< HEAD
         android:background="#ff41f39a"
         android:layout_below="@+id/AddressDescriptionText"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="29dp" />
-=======
-        android:layout_below="@+id/AddressDescriptionText"
-        android:layout_centerHorizontal="true" />
->>>>>>> origin/SQLtest
 
     <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/CityName"
         android:spinnerMode="dropdown"
-<<<<<<< HEAD
         android:gravity="center"
         android:layout_above="@+id/NewRestName"
         android:layout_alignParentStart="false" />
-=======
-        android:layout_below="@+id/NewRestNameText"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
->>>>>>> origin/SQLtest
 
     <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/FoodType"
         android:spinnerMode="dropdown"
-<<<<<<< HEAD
         android:gravity="center"
         android:layout_alignParentEnd="false"
         android:layout_above="@+id/CityName" />
-=======
-        android:layout_below="@+id/SubmitRestText"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
->>>>>>> origin/SQLtest
 
     <Button
         android:layout_width="wrap_content"
@@ -171,11 +90,7 @@
         android:id="@+id/NewRestBack"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-<<<<<<< HEAD
         android:layout_alignParentStart="true"
         android:background="#ff41f39a" />
-=======
-        android:layout_alignParentStart="true" />
->>>>>>> origin/SQLtest
 
 </RelativeLayout>
