@@ -43,6 +43,18 @@
             android:name=".List_Test"
             android:label="@string/title_activity_list__test" >
         </activity>
+        <activity
+            android:name=".NewRestRequest"
+            android:label="@string/title_activity_new_rest_request" >
+        </activity>
+        <activity
+            android:name=".AccountCreate"
+            android:label="@string/title_activity_account_create" >
+        </activity>
+        <activity
+            android:name=".Favorites"
+            android:label="@string/title_activity_favorites" >
+        </activity>
     </application>
 
 </manifest>

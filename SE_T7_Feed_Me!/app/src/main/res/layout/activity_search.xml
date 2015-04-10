@@ -6,17 +6,19 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.example.spencer.se_t7_feed_me.Search"
     android:id="@+id/SearchLayout"
-    android:background="#ff646164">
+    android:background="#ffffffff">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Select a Food Type!"
+        android:text="Select a Food Type"
         android:id="@+id/SearchText"
         android:layout_above="@+id/Search_FastFood_Button"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="52dp" />
+        android:layout_marginBottom="52dp"
+        android:textSize="31dp"
+        android:textStyle="bold" />
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -24,9 +26,10 @@
         android:id="@+id/Search_FastFood_Button"
         android:clickable="true"
         android:src="@mipmap/search_fastfood_image"
+        android:background="#ff41f39a"
         android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignLeft="@+id/SearchText"
+        android:layout_alignStart="@+id/SearchText" />
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -34,9 +37,10 @@
         android:id="@+id/Search_MexicanFood_Button"
         android:clickable="true"
         android:src="@mipmap/search_mexicanfood_image"
+        android:background="#ff41f39a"
         android:layout_above="@+id/Search_ItalianFood_Button"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignRight="@+id/SearchText"
+        android:layout_alignEnd="@+id/SearchText" />
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -44,9 +48,10 @@
         android:id="@+id/Search_AsianFood_Button"
         android:clickable="true"
         android:src="@mipmap/search_asianfood_image"
-        android:layout_below="@+id/Search_FastFood_Button"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:background="#ff41f39a"
+        android:layout_alignTop="@+id/Search_ItalianFood_Button"
+        android:layout_alignLeft="@+id/Search_FastFood_Button"
+        android:layout_alignStart="@+id/Search_FastFood_Button" />
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -54,9 +59,11 @@
         android:id="@+id/Search_ItalianFood_Button"
         android:src="@mipmap/search_italianfood_image"
         android:clickable="true"
-        android:layout_alignBottom="@+id/Search_AsianFood_Button"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:background="#ff41f39a"
+        android:layout_below="@+id/Search_FastFood_Button"
+        android:layout_alignLeft="@+id/Search_MexicanFood_Button"
+        android:layout_alignStart="@+id/Search_MexicanFood_Button"
+        android:layout_marginTop="26dp" />
 
     <Button
         android:layout_width="wrap_content"
@@ -64,7 +71,8 @@
         android:text="Back"
         android:id="@+id/Search_Back_Button"
         android:clickable="true"
-        android:layout_below="@+id/Search_AsianFood_Button"
+        android:background="#ff41f39a"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -74,18 +82,45 @@
         android:id="@+id/Search_City_Selector"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:spinnerMode="dropdown" />
+        android:spinnerMode="dropdown"
+        android:popupBackground="#ffebebeb"
+        android:gravity="center"
+        android:background="#ffffffff"
+        android:textAlignment="center" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/welcomeText"
         android:layout_below="@+id/Search_City_Selector"
-        android:layout_alignLeft="@+id/SearchText"
-        android:layout_alignStart="@+id/SearchText"
         android:layout_above="@+id/SearchText"
-        android:layout_alignRight="@+id/SearchText"
-        android:layout_alignEnd="@+id/SearchText"
-        android:textColor="#ffffea49"
-        android:textSize="22dp" />
+        android:textColor="#ff41f39a"
+        android:textSize="32dp"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="false"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:textIsSelectable="false"
+        android:gravity="center_horizontal" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CAN&apos;T FIND?"
+        android:id="@+id/SubmitNewRest"
+        android:layout_alignBottom="@+id/Search_Back_Button"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:background="#ff41f39a" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Favorites"
+        android:id="@+id/FavoritesButton"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="#ff41f39a" />
 </RelativeLayout>

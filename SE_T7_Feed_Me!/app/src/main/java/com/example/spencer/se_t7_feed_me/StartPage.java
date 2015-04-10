@@ -60,6 +60,15 @@ public class StartPage extends Activity implements OnClickListener{
             }
 
         });
+
+        Button CreateAccount = (Button) findViewById(R.id.CreateAccountButton);
+        CreateAccount.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent myIntent = new Intent(view.getContext(), AccountCreate.class);
+                startActivityForResult(myIntent, 0);
+            }
+
+        });
     }
 
 
