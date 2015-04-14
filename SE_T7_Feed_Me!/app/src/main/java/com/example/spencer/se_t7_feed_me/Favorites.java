@@ -52,6 +52,8 @@ public class Favorites extends Activity {
         backButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent myIntent = new Intent(view.getContext(), Search.class);
+                myIntent.putExtra("name", getIntent().getStringExtra("name"));
+                myIntent.putExtra("pass", getIntent().getStringExtra("pass"));
                 startActivityForResult(myIntent, 0);
             }
 
