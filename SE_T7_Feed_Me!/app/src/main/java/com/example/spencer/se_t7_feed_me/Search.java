@@ -26,18 +26,19 @@ public class Search extends ActionBarActivity {
 
         TextView welcome;
         welcome = (TextView) findViewById(R.id.welcomeText);
-        welcome.setText("Welcome " + getIntent().getStringExtra("name"));
+
+        if (getIntent().getStringExtra("name") != null)
+            welcome.setText("Welcome, " + getIntent().getStringExtra("name"));
 
         final Spinner spinner = (Spinner) findViewById(R.id.Search_City_Selector);
         ArrayList<String> cities = new ArrayList<String>();
         cities.add("Fayetteville, AR");
         cities.add("Little Rock, AR");
         cities.add("Springdale, AR");
-        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(getApplicationContext(),android.R.layout.simple_spinner_item,cities);
-        spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(getApplicationContext(),R.layout.spinner_layout,cities);
+        spinnerArrayAdapter.setDropDownViewResource(R.layout.spinner_layout);
         spinner.setAdapter(spinnerArrayAdapter);
-
-
 
         Button Search_Back = (Button) findViewById(R.id.Search_Back_Button);
         Search_Back.setOnClickListener(new View.OnClickListener() {
@@ -45,56 +46,75 @@ public class Search extends ActionBarActivity {
                 Intent myIntent = new Intent(view.getContext(), StartPage.class);
                 startActivityForResult(myIntent, 0);
             }
+        });
 
+        Button Search_Favorites = (Button) findViewById(R.id.FavoritesButton);
+        Search_Favorites.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent myIntent = new Intent(view.getContext(), Favorites.class);
+                myIntent.putExtra("name", getIntent().getStringExtra("name"));
+                myIntent.putExtra("pass", getIntent().getStringExtra("pass"));
+                startActivityForResult(myIntent, 0);
+            }
         });
 
         ImageButton Search_FastFood = (ImageButton) findViewById(R.id.Search_FastFood_Button);
         Search_FastFood.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent myIntent = new Intent(view.getContext(), List_Test.class);
-                myIntent.putExtra("city",spinner.getSelectedItem().toString());
-                myIntent.putExtra("type","Fast Food");
+                myIntent.putExtra("city", spinner.getSelectedItem().toString());
+                myIntent.putExtra("type", "Fast Food");
+                myIntent.putExtra("name", getIntent().getStringExtra("name"));
+                myIntent.putExtra("pass", getIntent().getStringExtra("pass"));
                 startActivityForResult(myIntent, 0);
             }
-
         });
 
         ImageButton Search_Mexican = (ImageButton) findViewById(R.id.Search_MexicanFood_Button);
         Search_Mexican.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent myIntent = new Intent(view.getContext(), List_Test.class);
-                myIntent.putExtra("city",spinner.getSelectedItem().toString());
-                myIntent.putExtra("type","Mexican");
+                myIntent.putExtra("city", spinner.getSelectedItem().toString());
+                myIntent.putExtra("type", "Mexican");
+                myIntent.putExtra("name", getIntent().getStringExtra("name"));
+                myIntent.putExtra("pass", getIntent().getStringExtra("pass"));
                 startActivityForResult(myIntent, 0);
             }
-
         });
 
         ImageButton Search_Asian = (ImageButton) findViewById(R.id.Search_AsianFood_Button);
         Search_Asian.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent myIntent = new Intent(view.getContext(), List_Test.class);
-                myIntent.putExtra("city",spinner.getSelectedItem().toString());
-                myIntent.putExtra("type","Asian");
+                myIntent.putExtra("city", spinner.getSelectedItem().toString());
+                myIntent.putExtra("type", "Asian");
+                myIntent.putExtra("name", getIntent().getStringExtra("name"));
+                myIntent.putExtra("pass", getIntent().getStringExtra("pass"));
                 startActivityForResult(myIntent, 0);
             }
-
         });
 
         ImageButton Search_Italian = (ImageButton) findViewById(R.id.Search_ItalianFood_Button);
         Search_Italian.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent myIntent = new Intent(view.getContext(), List_Test.class);
-                myIntent.putExtra("city",spinner.getSelectedItem().toString());
-                myIntent.putExtra("type","Italian");
+                myIntent.putExtra("city", spinner.getSelectedItem().toString());
+                myIntent.putExtra("type", "Italian");
+                myIntent.putExtra("name", getIntent().getStringExtra("name"));
+                myIntent.putExtra("pass", getIntent().getStringExtra("pass"));
                 startActivityForResult(myIntent, 0);
             }
+        });
 
+        Button NewRest = (Button) findViewById(R.id.SubmitNewRest);
+        NewRest.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent myIntent = new Intent(view.getContext(), NewRestRequest.class);
+                startActivityForResult(myIntent, 0);
+            }
         });
 
     }
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

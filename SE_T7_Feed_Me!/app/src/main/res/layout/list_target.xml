@@ -38,4 +38,24 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Favorited!"
+        android:id="@+id/favoriteText"
+        android:layout_alignBottom="@+id/List_Find_Button"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:visibility="invisible"
+        android:textColor="#ff05ff00" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Favorite!"
+        android:id="@+id/favoriteButton"
+        android:layout_alignTop="@+id/List_Find_Button"
+        android:layout_centerHorizontal="true"
+        android:visibility="visible" />
+
 </RelativeLayout>
