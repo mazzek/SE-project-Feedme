@@ -2,6 +2,7 @@ package com.example.spencer.se_t7_feed_me;
 
 import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -23,7 +24,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 
 
-public class AccountCreate extends ActionBarActivity {
+public class AccountCreate extends Activity {
 
     EditText et;
     EditText et1;
@@ -53,13 +54,13 @@ public class AccountCreate extends ActionBarActivity {
         @Override
         protected Void doInBackground(String... params) {
             is = null ;
-            String url_select = "http://feedmedb.netne.net/insertAccount.php";
+            String url_select = "http://feedmedb.netne.net/account_insert.php";
 
             httpClient = new DefaultHttpClient();
             httpPost = new HttpPost(url_select);
             ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
             nameValuePairs.add(new BasicNameValuePair("username",et.getText().toString()));
-            nameValuePairs.add(new BasicNameValuePair("password",et1.getText().toString()));
+            nameValuePairs.add(new BasicNameValuePair("pass",et1.getText().toString()));
             try {
                 httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 

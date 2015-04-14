@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -30,8 +31,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-
-public class Favorites extends ActionBarActivity {
+public class Favorites extends Activity {
 
     ArrayList<String> RestaurantNames = new ArrayList<String>();
     ArrayList<String> RestaurantAddresses = new ArrayList<String>();
@@ -39,7 +39,13 @@ public class Favorites extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list__test);
+        setContentView(R.layout.activity_favorites);
+
+        TextView headr;
+        headr = (TextView) findViewById(R.id.textView3);
+
+        if (getIntent().getStringExtra("name") != null)
+            headr.setText(getIntent().getStringExtra("name") + "'s Favorites");
 
         Button backButton = (Button) findViewById(R.id.fav_back_button);
         backButton.setOnClickListener(new View.OnClickListener() {
@@ -51,16 +57,12 @@ public class Favorites extends ActionBarActivity {
         });
 
         new connect().execute();
-        TextView text = (TextView) findViewById(R.id.textView2);
-        text.setText(getIntent().getStringExtra("type") + " Food!");
-
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_list__test, menu);
+        getMenuInflater().inflate(R.menu.menu_favorites, menu);
         return true;
     }
 
@@ -78,9 +80,8 @@ public class Favorites extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
-    class connect extends AsyncTask<String, String, Void> {
-        private ProgressDialog progressDialog = new ProgressDialog(List_Test.this);
+   class connect extends AsyncTask<String, String, Void> {
+        private ProgressDialog progressDialog = new ProgressDialog(Favorites.this);
         InputStream is = null;
         String result = "";
 
@@ -103,8 +104,8 @@ public class Favorites extends ActionBarActivity {
             HttpPost httpPost = new HttpPost(url_select);
 
             ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
-            nameValuePairs.add(new BasicNameValuePair("username", getIntent().getStringExtra("city")));
-            nameValuePairs.add(new BasicNameValuePair("password", getIntent().getStringExtra("type")));
+            nameValuePairs.add(new BasicNameValuePair("username", getIntent().getStringExtra("name")));
+            nameValuePairs.add(new BasicNameValuePair("pass", getIntent().getStringExtra("pass")));
             try {
                 httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 
@@ -138,7 +139,7 @@ public class Favorites extends ActionBarActivity {
 
             try {
                 JSONArray Jarray = new JSONArray(result);
-                for (int i = 0; i < Jarray.length(); i++) {
+                for (int i=0; i < Jarray.length(); i++) {
                     JSONObject Jsonobject = null;
                     Jsonobject = Jarray.getJSONObject(i);
                     RestaurantNames.add(Jsonobject.getString("Name"));
@@ -146,9 +147,9 @@ public class Favorites extends ActionBarActivity {
                 }
 
                 this.progressDialog.dismiss();
-                MyCustomAdapter adapter = new MyCustomAdapter(RestaurantNames, RestaurantAddresses, List_Test.this);
+                MyCustomAdapter adapter = new MyCustomAdapter(RestaurantNames, RestaurantAddresses, Favorites.this);
 
-                ListView lView = (ListView) findViewById(R.id.listView2);
+                ListView lView = (ListView) findViewById(R.id.listView);
                 lView.setAdapter(adapter);
             } catch (Exception e) {
                 // TODO: handle exception

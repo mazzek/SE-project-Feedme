@@ -169,6 +169,8 @@ public class StartPage extends Activity implements OnClickListener{
                             if (et2.getText().toString().equalsIgnoreCase(name) && (et.getText().toString().equalsIgnoreCase(password))) {
                                 Intent myIntent = new Intent(view.getContext(), Search.class);
                                 myIntent.putExtra("name", name);
+                                myIntent.putExtra("pass", password);
+
                                 startActivityForResult(myIntent, 0);
                             } else {
                                 text.setText("Invalid Login Info");
