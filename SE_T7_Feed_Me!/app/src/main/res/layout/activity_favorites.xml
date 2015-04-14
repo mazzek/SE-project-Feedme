@@ -12,9 +12,8 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Favorite Restaurants"
         android:id="@+id/textView3"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="57dp" />
+        android:layout_below="@+id/fav_back_button"
+        android:layout_centerHorizontal="true" />
 
     <ListView
         android:layout_width="wrap_content"
@@ -32,4 +31,5 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
 </RelativeLayout>

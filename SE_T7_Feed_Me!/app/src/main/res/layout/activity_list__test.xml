@@ -35,10 +35,48 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/listView2"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:background="#ffffffff"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="55dp"
         android:layout_above="@+id/backButton"
+        android:layout_below="@+id/textView2" />
+
+    <RadioGroup
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal"
         android:layout_below="@+id/textView2"
-        android:background="#ffffffff" />
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/backButton"
+        android:id="@+id/rgroup">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Most Favorited"
+            android:orientation="horizontal"
+            android:id="@+id/radioButtonFavorite"
+            android:onClick="onRadioButtonClicked"
+            android:checked="true" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name ASC"
+            android:id="@+id/radioButtonNameAsc"
+            android:orientation="horizontal"
+            android:layout_gravity="end"
+            android:onClick="onRadioButtonClicked"
+            android:checked="false" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name DESC"
+            android:id="@+id/radioButtonNameDesc"
+            android:onClick="onRadioButtonClicked"
+            android:checked="false" />
+    </RadioGroup>
 
 </RelativeLayout>

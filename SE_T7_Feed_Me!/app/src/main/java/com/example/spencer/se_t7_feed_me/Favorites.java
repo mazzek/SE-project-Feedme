@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RadioButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -61,7 +62,23 @@ public class Favorites extends Activity {
 
         new connect().execute();
     }
-
+   /* public void onRadioButtonClicked(View view) {
+        boolean checked = ((RadioButton) view).isChecked();
+        switch (view.getId()) {
+            case R.id.radioButtonFavorite:
+                if (checked)
+                    new connect().execute("0");
+                    break;
+            case R.id.radioButtonNameASC:
+                if (checked)
+                    new connect().execute("1");
+                    break;
+            case R.id.radioButtonNameDesc:
+                if (checked)
+                    new connect().execute("2");
+                    break;
+        }
+    }*/
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -109,6 +126,7 @@ public class Favorites extends Activity {
             ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
             nameValuePairs.add(new BasicNameValuePair("username", getIntent().getStringExtra("name")));
             nameValuePairs.add(new BasicNameValuePair("pass", getIntent().getStringExtra("pass")));
+            //nameValuePairs.add(new BasicNameValuePair("sort",params[0]));
             try {
                 httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 

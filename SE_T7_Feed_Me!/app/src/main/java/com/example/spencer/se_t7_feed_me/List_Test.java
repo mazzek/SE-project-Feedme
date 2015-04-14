@@ -13,7 +13,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.RadioButton;
 import android.content.Context;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import org.apache.http.HttpEntity;
@@ -54,7 +56,7 @@ public class List_Test extends Activity {
 
         });
 
-        new connect().execute();
+        new connect().execute("0");
         TextView text = (TextView) findViewById(R.id.textView2);
         text.setText(getIntent().getStringExtra("type") + " Food!");
 
@@ -63,6 +65,23 @@ public class List_Test extends Activity {
 
         ListView lView = (ListView)findViewById(R.id.listView2);
         lView.setAdapter(adapter);*/
+    }
+    public void onRadioButtonClicked(View view) {
+        boolean checked = ((RadioButton) view).isChecked();
+        switch (view.getId()) {
+            case R.id.radioButtonFavorite:
+                if (checked)
+                    new connect().execute("0");
+                break;
+            case R.id.radioButtonNameAsc:
+                if (checked)
+                    new connect().execute("1");
+                break;
+            case R.id.radioButtonNameDesc:
+                if (checked)
+                    new connect().execute("2");
+                break;
+        }
     }
 
 
@@ -116,6 +135,7 @@ public class List_Test extends Activity {
             nameValuePairs.add(new BasicNameValuePair("type",getIntent().getStringExtra("type")));
             nameValuePairs.add(new BasicNameValuePair("username", getIntent().getStringExtra("name")));
             nameValuePairs.add(new BasicNameValuePair("pass", getIntent().getStringExtra("pass")));
+            nameValuePairs.add(new BasicNameValuePair("sort",params[0]));
             try {
                 httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 
@@ -148,6 +168,10 @@ public class List_Test extends Activity {
         protected void onPostExecute(Void v) {
 
             try {
+                RestaurantNames.clear();
+                RestaurantsId.clear();
+                RestaurantsFavBool.clear();
+                RestaurantAddresses.clear();
                 JSONArray Jarray = new JSONArray(result);
                 for(int i=0;i<Jarray.length();i++) {
                     JSONObject Jsonobject = null;
