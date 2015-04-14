@@ -152,7 +152,7 @@ public class StartPage extends Activity implements OnClickListener{
 
         }
         protected void onPostExecute(Void v) {
-
+            int flag = 0;
             // ambil data dari Json database
             try {
                 JSONArray Jarray = new JSONArray(result);
@@ -164,21 +164,19 @@ public class StartPage extends Activity implements OnClickListener{
                     final String name = Jasonobject.getString("name");
                     final String password = Jasonobject.getString("detail");
 
-                    login.setOnClickListener(new View.OnClickListener() {
-                        public void onClick(View view) {
+
                             if (et2.getText().toString().equalsIgnoreCase(name) && (et.getText().toString().equalsIgnoreCase(password))) {
-                                Intent myIntent = new Intent(view.getContext(), Search.class);
+                                Intent myIntent = new Intent(getApplicationContext(), Search.class);
                                 myIntent.putExtra("name", name);
                                 myIntent.putExtra("pass", password);
-
+                                flag = 1;
                                 startActivityForResult(myIntent, 0);
-                            } else {
-                                text.setText("Invalid Login Info");
                             }
-                        }
-                    });
-                }
 
+
+                }
+                if(flag == 0)
+                    text.setText("Invalid Login Info");
                 this.progressDialog.dismiss();
 
             } catch (Exception e) {
