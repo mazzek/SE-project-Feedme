@@ -64,6 +64,8 @@ public class Search extends ActionBarActivity {
                 Intent myIntent = new Intent(view.getContext(), List_Test.class);
                 myIntent.putExtra("city", spinner.getSelectedItem().toString());
                 myIntent.putExtra("type", "Fast Food");
+                myIntent.putExtra("name", getIntent().getStringExtra("name"));
+                myIntent.putExtra("pass", getIntent().getStringExtra("pass"));
                 startActivityForResult(myIntent, 0);
             }
         });
@@ -74,6 +76,8 @@ public class Search extends ActionBarActivity {
                 Intent myIntent = new Intent(view.getContext(), List_Test.class);
                 myIntent.putExtra("city", spinner.getSelectedItem().toString());
                 myIntent.putExtra("type", "Mexican");
+                myIntent.putExtra("name", getIntent().getStringExtra("name"));
+                myIntent.putExtra("pass", getIntent().getStringExtra("pass"));
                 startActivityForResult(myIntent, 0);
             }
         });
@@ -84,6 +88,8 @@ public class Search extends ActionBarActivity {
                 Intent myIntent = new Intent(view.getContext(), List_Test.class);
                 myIntent.putExtra("city", spinner.getSelectedItem().toString());
                 myIntent.putExtra("type", "Asian");
+                myIntent.putExtra("name", getIntent().getStringExtra("name"));
+                myIntent.putExtra("pass", getIntent().getStringExtra("pass"));
                 startActivityForResult(myIntent, 0);
             }
         });
@@ -94,6 +100,8 @@ public class Search extends ActionBarActivity {
                 Intent myIntent = new Intent(view.getContext(), List_Test.class);
                 myIntent.putExtra("city", spinner.getSelectedItem().toString());
                 myIntent.putExtra("type", "Italian");
+                myIntent.putExtra("name", getIntent().getStringExtra("name"));
+                myIntent.putExtra("pass", getIntent().getStringExtra("pass"));
                 startActivityForResult(myIntent, 0);
             }
         });

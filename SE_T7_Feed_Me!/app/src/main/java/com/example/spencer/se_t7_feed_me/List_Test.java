@@ -36,6 +36,8 @@ import java.util.ArrayList;
 public class List_Test extends Activity {
     ArrayList<String> RestaurantNames = new ArrayList<String>();
     ArrayList<String> RestaurantAddresses = new ArrayList<String>();
+    ArrayList<String> RestaurantsFavBool = new ArrayList<String>();
+    ArrayList<String> RestaurantsId = new ArrayList<String>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +47,8 @@ public class List_Test extends Activity {
         backButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent myIntent = new Intent(view.getContext(), Search.class);
+                myIntent.putExtra("name", getIntent().getStringExtra("name"));
+                myIntent.putExtra("pass", getIntent().getStringExtra("pass"));
                 startActivityForResult(myIntent, 0);
             }
 
@@ -85,81 +89,85 @@ public class List_Test extends Activity {
 
 
 
-class connect extends AsyncTask<String, String, Void>
-{
-    private ProgressDialog progressDialog = new ProgressDialog(List_Test.this);
-    InputStream is = null ;
-    String result = "";
-    protected void onPreExecute() {
-        progressDialog.setMessage("Retrieving Restaurants...");
-        progressDialog.show();
-        progressDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
-            @Override
-            public void onCancel(DialogInterface arg0) {
-                connect.this.cancel(true);
-            }
-        });
-    }
-    @Override
-    protected Void doInBackground(String... params) {
-        String url_select = "http://feedmedb.netne.net/restaurant.php";
-
-        HttpClient httpClient = new DefaultHttpClient();
-        HttpPost httpPost = new HttpPost(url_select);
-
-        ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
-        nameValuePairs.add(new BasicNameValuePair("location",getIntent().getStringExtra("city")));
-        nameValuePairs.add(new BasicNameValuePair("type",getIntent().getStringExtra("type")));
-        try {
-            httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
-
-            HttpResponse httpResponse = httpClient.execute(httpPost);
-            HttpEntity httpEntity = httpResponse.getEntity();
-
-            is =  httpEntity.getContent();
-
-        } catch (Exception e) {
-
-            Log.e("log_tag", "Error in http connection " + e.toString());
+    class connect extends AsyncTask<String, String, Void>
+    {
+        private ProgressDialog progressDialog = new ProgressDialog(List_Test.this);
+        InputStream is = null ;
+        String result = "";
+        protected void onPreExecute() {
+            progressDialog.setMessage("Retrieving Restaurants...");
+            progressDialog.show();
+            progressDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+                @Override
+                public void onCancel(DialogInterface arg0) {
+                    connect.this.cancel(true);
+                }
+            });
         }
-        try {
-            BufferedReader br = new BufferedReader(new InputStreamReader(is));
-            StringBuilder sb = new StringBuilder();
-            String line = "";
-            while((line=br.readLine())!=null)
-            {
-                sb.append(line+"\n");
+        @Override
+        protected Void doInBackground(String... params) {
+            String url_select = "http://feedmedb.netne.net/restaurantList.php";
+
+            HttpClient httpClient = new DefaultHttpClient();
+            HttpPost httpPost = new HttpPost(url_select);
+
+            ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+            nameValuePairs.add(new BasicNameValuePair("city",getIntent().getStringExtra("city")));
+            nameValuePairs.add(new BasicNameValuePair("type",getIntent().getStringExtra("type")));
+            nameValuePairs.add(new BasicNameValuePair("username", getIntent().getStringExtra("name")));
+            nameValuePairs.add(new BasicNameValuePair("pass", getIntent().getStringExtra("pass")));
+            try {
+                httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+
+                HttpResponse httpResponse = httpClient.execute(httpPost);
+                HttpEntity httpEntity = httpResponse.getEntity();
+
+                is =  httpEntity.getContent();
+
+            } catch (Exception e) {
+
+                Log.e("log_tag", "Error in http connection " + e.toString());
             }
-            is.close();
-            result=sb.toString();
+            try {
+                BufferedReader br = new BufferedReader(new InputStreamReader(is));
+                StringBuilder sb = new StringBuilder();
+                String line = "";
+                while((line=br.readLine())!=null)
+                {
+                    sb.append(line+"\n");
+                }
+                is.close();
+                result=sb.toString();
 
-        } catch (Exception e) {
-            // TODO: handle exception
-            Log.e("log_tag", "Error converting result "+e.toString());
-        }
-        return null;
-    }
-    protected void onPostExecute(Void v) {
-
-        try {
-            JSONArray Jarray = new JSONArray(result);
-            for(int i=0;i<Jarray.length();i++) {
-                JSONObject Jsonobject = null;
-                Jsonobject = Jarray.getJSONObject(i);
-                RestaurantNames.add(Jsonobject.getString("Name"));
-                RestaurantAddresses.add(Jsonobject.getString("Address"));
+            } catch (Exception e) {
+                // TODO: handle exception
+                Log.e("log_tag", "Error converting result "+e.toString());
             }
+            return null;
+        }
+        protected void onPostExecute(Void v) {
 
-            this.progressDialog.dismiss();
-            MyCustomAdapter adapter = new MyCustomAdapter(RestaurantNames, RestaurantAddresses, List_Test.this);
+            try {
+                JSONArray Jarray = new JSONArray(result);
+                for(int i=0;i<Jarray.length();i++) {
+                    JSONObject Jsonobject = null;
+                    Jsonobject = Jarray.getJSONObject(i);
+                    RestaurantNames.add(Jsonobject.getString("Name"));
+                    RestaurantAddresses.add(Jsonobject.getString("Address"));
+                    RestaurantsFavBool.add(Jsonobject.getString("boolfav"));
+                    RestaurantsId.add(Jsonobject.getString("id"));
+                }
 
-            ListView lView = (ListView)findViewById(R.id.listView2);
-            lView.setAdapter(adapter);
-        } catch (Exception e) {
-            // TODO: handle exception
-            Log.e("log_tag", "Error parsing data "+e.toString());
+                this.progressDialog.dismiss();
+                MyCustomAdapter adapter = new MyCustomAdapter(getIntent().getStringExtra("name"), getIntent().getStringExtra("pass"),RestaurantNames, RestaurantAddresses,RestaurantsFavBool,RestaurantsId, List_Test.this);
+
+                ListView lView = (ListView)findViewById(R.id.listView2);
+                lView.setAdapter(adapter);
+            } catch (Exception e) {
+                // TODO: handle exception
+                Log.e("log_tag", "Error parsing data "+e.toString());
+            }
         }
     }
-}
 
 }

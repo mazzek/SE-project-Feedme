@@ -35,6 +35,7 @@ public class Favorites extends Activity {
 
     ArrayList<String> RestaurantNames = new ArrayList<String>();
     ArrayList<String> RestaurantAddresses = new ArrayList<String>();
+    ArrayList<String> RestaurantsId = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -144,11 +145,12 @@ public class Favorites extends Activity {
                     Jsonobject = Jarray.getJSONObject(i);
                     RestaurantNames.add(Jsonobject.getString("Name"));
                     RestaurantAddresses.add(Jsonobject.getString("Address"));
+                    RestaurantsId.add(Jsonobject.getString("id"));
                 }
 
                 this.progressDialog.dismiss();
-                MyCustomAdapter adapter = new MyCustomAdapter(RestaurantNames, RestaurantAddresses, Favorites.this);
-
+                //MyCustomAdapter adapter = new MyCustomAdapter(RestaurantNames, RestaurantAddresses, Favorites.this);
+                favAdapter adapter = new favAdapter(getIntent().getStringExtra("name"), getIntent().getStringExtra("pass"),RestaurantNames, RestaurantAddresses, RestaurantsId, Favorites.this);
                 ListView lView = (ListView) findViewById(R.id.listView);
                 lView.setAdapter(adapter);
             } catch (Exception e) {
